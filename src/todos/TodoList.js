@@ -1,18 +1,15 @@
-import React, { useEffect } from 'react'
-import { connect } from 'react-redux'
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 import { 
-    getTodos, 
     getTodosLoading,
     getCompletedTodos,
     getIncompleteTodos
-} from './selectors'
-import { displayAlert } from '../thunks'
-import NewTodoForm from './NewTodoForm'
-import TodoListItem from './TodoListItem'
-import { loadTodos, removeTodoRequest, completeTodoRequest } from '../thunks'
-import { completeTodo } from '../actionCreators';
-import './TodoList.css'
-import { isLoading, todos } from '../reducers'
+} from './selectors';
+import NewTodoForm from './NewTodoForm';
+import TodoListItem from './TodoListItem';
+import { loadTodos, removeTodoRequest, completeTodoRequest } from '../thunks';
+import styled from 'styled-components';
+
 
 const TodoList = ({ completeTodos, incompleteTodos, onRemovePressed, onCompletePressed, isLoading, startLoadingTodos }) => {
     useEffect(() => {
