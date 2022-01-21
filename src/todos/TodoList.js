@@ -10,6 +10,10 @@ import TodoListItem from './TodoListItem';
 import { loadTodos, removeTodoRequest, completeTodoRequest } from '../thunks';
 import styled from 'styled-components';
 
+const ListWrapper = styled.div`
+    max-width: 700px;
+    margin: auto;
+`;
 
 const TodoList = ({ completeTodos, incompleteTodos, onRemovePressed, onCompletePressed, isLoading, startLoadingTodos }) => {
     useEffect(() => {
@@ -18,7 +22,7 @@ const TodoList = ({ completeTodos, incompleteTodos, onRemovePressed, onCompleteP
     
     const loadingMessage = <div>Loading Todos...</div>;
     const content = (
-    <div className='list-wrapper'>
+    <ListWrapper>
         <NewTodoForm/>
         <h1>Incomplete</h1>
         {incompleteTodos.map(todo => <TodoListItem
@@ -34,7 +38,7 @@ const TodoList = ({ completeTodos, incompleteTodos, onRemovePressed, onCompleteP
             onRemovePressed={onRemovePressed}
             onCompletePressed={onCompletePressed}/>
         )}
-    </div>
+    </ListWrapper>
     );
     return isLoading ? loadingMessage : content;
 };
