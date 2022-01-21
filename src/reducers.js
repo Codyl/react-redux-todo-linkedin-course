@@ -14,6 +14,15 @@ export const todos = (state = [], action) => {
             const { text } = payload;
             return state.filter(todo => todo.text != text);
         }
+        case actionTypes.COMPLETE_TODO: {
+            const { text } = payload;
+            return state.map(todo =>{
+                if(todo.text === text) {
+                    todo.isCompleted = true;
+                }
+                return todo;
+            })
+        }
         default: {
             return state;
         }
