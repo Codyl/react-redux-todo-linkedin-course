@@ -2,7 +2,7 @@ import { removeTodo, createTodo, loadTodosFailure, loadTodosInProgress, loadTodo
 export const displayAlert = text => () => {
     alert(text);
 };
-export const loadTodos = () => async(dispatch, getState) => {
+export const loadTodos = () => async dispatch => {
     try {
         dispatch(loadTodosInProgress());
         const response = await fetch('http://localhost:8080/todos-delay');

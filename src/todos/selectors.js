@@ -8,3 +8,4 @@ export const getIncompleteTodos = createSelector(getTodos,
 export const getCompletedTodos = createSelector(getTodos,
     todos => todos.filter(todo => todo.isCompleted)
 );
+
